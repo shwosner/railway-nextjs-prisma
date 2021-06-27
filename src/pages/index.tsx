@@ -1,9 +1,9 @@
-import { NextPage } from "next";
-import Head from "next/head";
-import { useMemo, useState } from "react";
-import { createTodo, deleteTodo, toggleTodo, useTodos } from "../api";
-import styles from "../styles/Home.module.css";
-import { Todo } from "../types";
+import { NextPage } from 'next';
+import Head from 'next/head';
+import { useMemo, useState } from 'react';
+import { createTodo, deleteTodo, toggleTodo, useTodos } from '../api';
+import styles from '../styles/Home.module.css';
+import { Todo } from '../types';
 
 export const TodoList: React.FC = () => {
   const { data: todos, error } = useTodos();
@@ -12,7 +12,7 @@ export const TodoList: React.FC = () => {
   if (todos == null) return <div>Loading...</div>;
 
   if (todos.length === 0) {
-    return <div className={styles.emptyState}>Try adding a todo ☝️️</div>;
+    return <div className={styles.emptyState}>Try adding a todo ☝️️!</div>;
   }
 
   return (
@@ -27,7 +27,7 @@ export const TodoList: React.FC = () => {
 const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => (
   <li className={styles.todo}>
     <label
-      className={`${styles.label} ${todo.completed ? styles.checked : ""}`}
+      className={`${styles.label} ${todo.completed ? styles.checked : ''}`}
     >
       <input
         type="checkbox"
@@ -45,14 +45,14 @@ const TodoItem: React.FC<{ todo: Todo }> = ({ todo }) => (
 );
 
 const AddTodoInput = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
 
   return (
     <form
       onSubmit={async e => {
         e.preventDefault();
         createTodo(text);
-        setText("");
+        setText('');
       }}
       className={styles.addTodo}
     >
@@ -78,8 +78,8 @@ const Home: NextPage = () => {
       <header className={styles.header}>
         <h1 className={styles.title}>Todos</h1>
         <h2 className={styles.desc}>
-          NextJS app connected to Postgres using Prisma and hosted on{" "}
-          <a href="https://railway.app">Railway</a>
+          NextJS app connected to Postgres using Prisma and hosted on{' '}
+          <a href="https://railway.app">Railway!</a>
         </h2>
       </header>
 
