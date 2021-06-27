@@ -15,4 +15,5 @@ model Todo {
   createdAt DateTime @default(now())
   text      String
   completed Boolean
+  name String?
 }
